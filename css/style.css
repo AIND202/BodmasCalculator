@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes blink {
+  0%,
+  75% {
+    opacity: 1;
+  }
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  30%,
+  60% {
+    width: 5.4rem;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #ff4f8b, #dff1ff);
+}
+.container {
+  position: relative;
+  overflow: hidden;
+  animation: type 4s infinite steps(10);
+}
+.container h2 {
+  font-family: monospace;
+  color:deeppink;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  animation: blink 0.8s steps(10) infinite;
+}
